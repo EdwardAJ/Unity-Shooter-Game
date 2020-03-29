@@ -14,9 +14,12 @@ public class Movement : MonoBehaviour
 
     private float realBackgroundWidth;
     private float initialScaleX;
+    private float characterEnergy = 100;
 
+    public int score = 0;
     public float moveSpeed = 6f;
     public float jumpSpeed = 5f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -99,5 +102,22 @@ public class Movement : MonoBehaviour
         RaycastHit2D raycastHit = Physics2D.Raycast(boxCollider.bounds.center, Vector2.down, boxCollider.bounds.extents.y + 0.1f, layerMask);
         Debug.Log(raycastHit.collider);
         return raycastHit.collider != null;
+    }
+
+    private void OnCollisionEnter2D(Collision2D col) {
+        if (col.gameObject.tag.Equals("Zombie")) {
+            characterEnergy -= 25;
+            // movement = new Vector2(-5 * 1f, rb.velocity.y);
+            // rb.velocity = movement * moveSpeed;
+            if (transform.position.x - 1f >= characterInitialPosition.x) {
+                transform.position = new Vector3(transform.position.x - 1f, transform.position.y, transform.position.z);
+            } else {
+                transform.position = new Vector3(transform.position.x + 4f, transform.position.y, transform.position.z);
+            }
+            if (characterEnergy <= 0) {
+                GameObject.FindGameObjectWithTag("Background").GetComponent<ZombieMovement>().DeleteZombie();
+                Destroy(gameObject);
+            }
+        }
     }
 }

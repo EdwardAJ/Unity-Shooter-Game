@@ -12,9 +12,11 @@ public class CameraFollow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mainCharacterTransform = GameObject.FindGameObjectWithTag("Main Character").transform;
+        if (GameObject.FindGameObjectWithTag("Main Character") != null) {
+            mainCharacterTransform = GameObject.FindGameObjectWithTag("Main Character").transform;
+        }
         backgroundTransform = GameObject.FindGameObjectWithTag("Background").transform;
-        offsetX = 1.4f;
+        offsetX = 0.7f;
         offsetY = 0.3f;
     }
 
@@ -22,8 +24,10 @@ public class CameraFollow : MonoBehaviour
     void LateUpdate()
     {
         Vector3 cameraPosition = transform.position;
-        cameraPosition.x = mainCharacterTransform.position.x + offsetX;
-        cameraPosition.y = mainCharacterTransform.position.y + offsetY;
+        if (GameObject.FindGameObjectWithTag("Main Character") != null) {
+            cameraPosition.x = mainCharacterTransform.position.x + offsetX;
+            cameraPosition.y = mainCharacterTransform.position.y + offsetY;
+        }
         transform.position = cameraPosition;
     }
 }

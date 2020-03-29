@@ -7,6 +7,9 @@ TagManager:
   - Ground
   - Main Character
   - Background
+  - Bullet
+  - Zombie
+  - ScoreText
   layers:
   - Default
   - TransparentFX
