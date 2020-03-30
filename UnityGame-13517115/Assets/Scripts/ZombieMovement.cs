@@ -10,7 +10,7 @@ public class ZombieMovement : MonoBehaviour
 
     // Using Object Pooling
     private List<GameObject> zombieList;
-    private int numberOfZombies = 3;
+    private int numberOfZombies = 4;
 
     // Start is called before the first frame update
     void Start()

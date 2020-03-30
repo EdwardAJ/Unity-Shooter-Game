@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 using Proyecto26;
@@ -36,7 +37,7 @@ public class ScoreController : MonoBehaviour
         RestClient.Post("http://134.209.97.218:5051/scoreboards/13517115", userStats).Then(response => {
             Debug.Log("Response: " + response.Text);
             if (response.Text.Equals("OK")) {
-                Debug.Log("Luar biasa");
+                SceneManager.LoadScene("MainMenu");
             }
         });
     }

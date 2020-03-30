@@ -18,7 +18,14 @@ public class Zombie : MonoBehaviour
     }
 
     void OnEnable() {
-        Invoke("ReviveZombie", 1f);
+        float delayTime = Random.Range(3f, 5f);
+        if (scoreCanvas.GetComponent<ScoreController>().scoreInt > 25) {
+            delayTime = Random.Range(1.5f, 3f);
+        }
+        if (scoreCanvas.GetComponent<ScoreController>().scoreInt > 50) {
+            delayTime = Random.Range(0.25f, 0.75f);
+        }
+        Invoke("ReviveZombie", delayTime);
     }
 
     void ReviveZombie() {
