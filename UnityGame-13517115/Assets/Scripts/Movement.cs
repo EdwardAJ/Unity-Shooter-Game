@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {   
-    [SerializeField] private LayerMask layerMask; 
+    [SerializeField] private LayerMask layerMask;
+    [SerializeField] private GameObject scoreCanvas;
+
     private Rigidbody2D rb;
     private Animator anim;
     private Vector2 movement;
@@ -75,7 +77,6 @@ public class Movement : MonoBehaviour
 
     private void SetJump() {
          if (IsGrounded()) {
-            Debug.Log("Is Grounded");
             anim.SetBool("isJumpActive", false);
         }
 
@@ -83,7 +84,6 @@ public class Movement : MonoBehaviour
             rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
             anim.Play("Jump", 0, 0.25f);
             anim.SetBool("isJumpActive", true);
-            Debug.Log("Jump: " + rb.position);
         }
     }
 
@@ -100,21 +100,19 @@ public class Movement : MonoBehaviour
 
     private bool IsGrounded() {
         RaycastHit2D raycastHit = Physics2D.Raycast(boxCollider.bounds.center, Vector2.down, boxCollider.bounds.extents.y + 0.1f, layerMask);
-        Debug.Log(raycastHit.collider);
         return raycastHit.collider != null;
     }
 
     private void OnCollisionEnter2D(Collision2D col) {
         if (col.gameObject.tag.Equals("Zombie")) {
             characterEnergy -= 25;
-            // movement = new Vector2(-5 * 1f, rb.velocity.y);
-            // rb.velocity = movement * moveSpeed;
             if (transform.position.x - 1f >= characterInitialPosition.x) {
                 transform.position = new Vector3(transform.position.x - 1f, transform.position.y, transform.position.z);
             } else {
                 transform.position = new Vector3(transform.position.x + 4f, transform.position.y, transform.position.z);
             }
             if (characterEnergy <= 0) {
+                scoreCanvas.GetComponent<ScoreController>().DisplayInputField();
                 GameObject.FindGameObjectWithTag("Background").GetComponent<ZombieMovement>().DeleteZombie();
                 Destroy(gameObject);
             }

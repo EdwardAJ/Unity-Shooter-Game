@@ -6,14 +6,16 @@ public class ZombieMovement : MonoBehaviour
 {
     [SerializeField] private GameObject mainCharacter;
     [SerializeField] private GameObject zombie;
+    // private GameObject zombie;
 
     // Using Object Pooling
     private List<GameObject> zombieList;
-    private int numberOfZombies = 6;
+    private int numberOfZombies = 3;
 
     // Start is called before the first frame update
     void Start()
     {
+        // zombie = GameObject.FindGameObjectWithTag("Zombie");
         zombieList = new List<GameObject>();
         for (int i = 0; i < numberOfZombies; i++) {
             GameObject zombieObject = (GameObject) Instantiate(zombie);
@@ -26,9 +28,7 @@ public class ZombieMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!IsAllZombieActive()) {
-            Invoke("SpawnZombie", 4f);
-        }
+        SpawnZombie();
     }
 
     private void SpawnZombie() {
@@ -39,22 +39,12 @@ public class ZombieMovement : MonoBehaviour
                 zombieList[i].transform.rotation = zombie.transform.rotation;
                 zombieList[i].SetActive(true);
                 // Only triggered once!
-                break;
             }
         }
-    }
-
-    private bool IsAllZombieActive() {
-        for (int i = 0; i < zombieList.Count; i++) {
-            if (!zombieList[i].activeInHierarchy) {
-                return false;
-            }
-        }
-        return true;
     }
 
     public void DeleteZombie() {
-        CancelInvoke();
+        // CancelInvoke();
         for (int i = 0; i < zombieList.Count; i++) {
             zombieList[i].SetActive(false);
             Destroy(zombieList[i]);

@@ -18,6 +18,10 @@ public class Zombie : MonoBehaviour
     }
 
     void OnEnable() {
+        Invoke("ReviveZombie", 1f);
+    }
+
+    void ReviveZombie() {
         isEnabled = true;
         energy = 30;
     }
@@ -50,7 +54,7 @@ public class Zombie : MonoBehaviour
         if (col.gameObject.tag.Equals("Bullet")) {
             energy -= 10;
             if (energy <= 0) {
-                scoreCanvas.GetComponent<TextFollow>().scoreInt += 1;
+                scoreCanvas.GetComponent<ScoreController>().scoreInt += 1;
                 isEnabled = false;
                 gameObject.SetActive(false);
             }
