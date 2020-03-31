@@ -5,6 +5,8 @@ using UnityEngine;
 public class BulletLogic : MonoBehaviour
 {
     private float bulletSpeed = 10f;
+    public float delayTime = 0.5f;
+
     private void OnEnable() {
         // Hide after one second.
         if (transform.localScale.x < 0) {
@@ -12,7 +14,7 @@ public class BulletLogic : MonoBehaviour
         } else {
             transform.GetComponent<Rigidbody2D>().AddForce(Vector2.right * bulletSpeed, ForceMode2D.Impulse);
         }
-        Invoke("Hide", 0.5f);
+        Invoke("Hide", delayTime);
     }
     
     void Hide() {

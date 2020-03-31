@@ -9,20 +9,24 @@ public class ScoreController : MonoBehaviour
 {
     public Camera camera;
     public Text scoreText;
+    public Text energyText;
 
     public GameObject inputField;
     public int scoreInt;
+    public int energyInt;
 
     // Start is called before the first frame update
     void Start()
     {
         scoreInt = 0;
         scoreText.text = "Score: " + scoreInt.ToString();
+        energyText.text = "Energy: " + energyInt.ToString();
         inputField.SetActive(false);
     }
 
     void LateUpdate()
     {
+        energyText.text = "Energy: " + energyInt.ToString();
         scoreText.text = "Score: " + scoreInt.ToString();
         transform.position = new Vector3(camera.transform.position.x, camera.transform.position.y,  -0.1f);
     }

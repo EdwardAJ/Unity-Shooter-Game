@@ -16,7 +16,7 @@ public class Movement : MonoBehaviour
 
     private float realBackgroundWidth;
     private float initialScaleX;
-    private float characterEnergy = 100;
+    private int characterEnergy = 100;
 
     public int score = 0;
     public float moveSpeed = 6f;
@@ -41,6 +41,8 @@ public class Movement : MonoBehaviour
         maxRightPosition.x = backgroundTransform.position.x + realBackgroundWidth + characterInitialPosition.x - 5f;
 
         initialScaleX = transform.localScale.x;
+
+        scoreCanvas.GetComponent<ScoreController>().energyInt = characterEnergy;
     }
 
     // Update is called once per frame
@@ -105,7 +107,8 @@ public class Movement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col) {
         if (col.gameObject.tag.Equals("Zombie")) {
-            characterEnergy -= 25;
+            characterEnergy -= 10;
+            scoreCanvas.GetComponent<ScoreController>().energyInt = characterEnergy;
             if (transform.position.x - 1f >= characterInitialPosition.x) {
                 transform.position = new Vector3(transform.position.x - 1f, transform.position.y, transform.position.z);
             } else {
