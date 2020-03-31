@@ -10,6 +10,8 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private Button playButton;
     [SerializeField] private Button scoreboardButton;
     [SerializeField] private Button soundButton;
+    [SerializeField] private Button exitButton;
+
     [SerializeField] private AudioSource music;
 
     private Text soundButtonText;
@@ -20,6 +22,7 @@ public class MainMenuController : MonoBehaviour
         playButton.onClick.AddListener(PlayOnClick);
         scoreboardButton.onClick.AddListener(ScoreboardOnClick);
         soundButton.onClick.AddListener(SoundOnClick);
+        exitButton.onClick.AddListener(ExitOnClick);
 
         soundButtonText = soundButton.GetComponentInChildren<Text>();
 
@@ -52,5 +55,9 @@ public class MainMenuController : MonoBehaviour
             PlayerPrefs.SetInt("Sound", 0);
             soundButtonText.text = "Sound: " + "Off";
         }
+    }
+
+    private void ExitOnClick() {
+        Application.Quit();
     }
 }

@@ -40,7 +40,7 @@ public class ZombieMovement : MonoBehaviour
         for (int i = 0; i < zombieList.Count; i++) {
             if (!zombieList[i].activeInHierarchy) {
                 float offset = Random.Range(0.5f, 5f);
-                zombieList[i].transform.position = new Vector2(mainCharacter.transform.position.x + offset, 1.6f);
+                zombieList[i].transform.position = new Vector3(mainCharacter.transform.position.x + offset, 1.6f, -0.1f);
                 // zombieList[i].transform.rotation = zombie.transform.rotation;
                 zombieList[i].SetActive(true);
                 // Only triggered once!
