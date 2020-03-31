@@ -37,8 +37,7 @@ public class BulletShooting : MonoBehaviour
             if (!bulletList[i].activeInHierarchy) {
                 bulletList[i].transform.position = spawnPoint.position;
                 bulletList[i].transform.rotation = spawnPoint.rotation;
-                // Debug.Log("position: " + bulletList[i].transform.position);
-                // Set the direction of the bullet!
+
                 if (transform.localScale.x < 0) {
                     bulletList[i].transform.localScale = new Vector2(-1 * bullet.transform.localScale.x, bullet.transform.localScale.y);
                 } else {

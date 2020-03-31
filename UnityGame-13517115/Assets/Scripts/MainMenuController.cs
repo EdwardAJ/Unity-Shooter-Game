@@ -7,14 +7,14 @@ using UnityEngine.UI;
 public class MainMenuController : MonoBehaviour
 {
     [SerializeField] private Button playButton;
-    [SerializeField] private Button scoreBoardButton;
+    [SerializeField] private Button scoreboardButton;
     [SerializeField] private Button soundButton;
 
     // Start is called before the first frame update
     void Start()
     {
         playButton.onClick.AddListener(PlayOnClick);
-        scoreBoardButton.onClick.AddListener(ScoreBoardOnClick);
+        scoreboardButton.onClick.AddListener(ScoreboardOnClick);
         soundButton.onClick.AddListener(SoundOnClick);
     }
 
@@ -28,8 +28,8 @@ public class MainMenuController : MonoBehaviour
         SceneManager.LoadScene("Game");
     }
 
-    private void ScoreBoardOnClick() {
-
+    private void ScoreboardOnClick() {
+        SceneManager.LoadScene("Scoreboard");
     }
 
     private void SoundOnClick() {
