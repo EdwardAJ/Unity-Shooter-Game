@@ -11,7 +11,7 @@ public class ZombieMovement : MonoBehaviour
 
     // Using Object Pooling
     private List<GameObject> zombieList;
-    private int numberOfZombies = 6;
+    private int numberOfZombies = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +39,7 @@ public class ZombieMovement : MonoBehaviour
     private void SpawnZombie() {
         for (int i = 0; i < zombieList.Count; i++) {
             if (!zombieList[i].activeInHierarchy) {
-                float offset = Random.Range(0.5f, 5f);
+                float offset = Random.Range(0.3f, 7f);
                 zombieList[i].transform.position = new Vector3(mainCharacter.transform.position.x + offset, 1.6f, -0.1f);
                 // zombieList[i].transform.rotation = zombie.transform.rotation;
                 zombieList[i].SetActive(true);

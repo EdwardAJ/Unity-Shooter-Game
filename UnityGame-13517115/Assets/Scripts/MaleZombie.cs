@@ -7,7 +7,7 @@ public class MaleZombie : Zombie
     private void OnCollisionEnter2D(Collision2D col) {
         if (col.gameObject.tag.Equals("Bullet") || col.gameObject.tag.Equals("Rocket")) {
             if (col.gameObject.tag.Equals("Bullet")) {
-                energy -= 15;
+                energy -= 6;
             } else if (col.gameObject.tag.Equals("Rocket")) {
                 energy = 0;
             }
