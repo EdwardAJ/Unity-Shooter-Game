@@ -6,6 +6,7 @@ public class BulletShooting : MonoBehaviour
 {
     [SerializeField] private GameObject bullet;
     [SerializeField] private Transform spawnPoint;
+    [SerializeField] private AudioSource sound;
 
     // Using Object Pooling
     private List<GameObject> bulletList;
@@ -28,6 +29,9 @@ public class BulletShooting : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space)) {
+            if (PlayerPrefs.GetInt("Sound") == 1) {
+                sound.Play();
+            }
             Fire();
         }
     }

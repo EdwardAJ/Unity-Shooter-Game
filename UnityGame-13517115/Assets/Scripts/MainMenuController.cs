@@ -4,11 +4,15 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class MainMenuController : MonoBehaviour
 {
     [SerializeField] private Button playButton;
     [SerializeField] private Button scoreboardButton;
     [SerializeField] private Button soundButton;
+    [SerializeField] private AudioSource music;
+
+    private Text soundButtonText;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +20,12 @@ public class MainMenuController : MonoBehaviour
         playButton.onClick.AddListener(PlayOnClick);
         scoreboardButton.onClick.AddListener(ScoreboardOnClick);
         soundButton.onClick.AddListener(SoundOnClick);
+
+        soundButtonText = soundButton.GetComponentInChildren<Text>();
+
+        PlayerPrefs.SetInt("Sound", 1);
+        soundButtonText.text = "Sound: " + "On";
+        music.Play();
     }
 
     // Update is called once per frame
@@ -33,6 +43,14 @@ public class MainMenuController : MonoBehaviour
     }
 
     private void SoundOnClick() {
-
+        if (soundButtonText.text.Equals("Sound: Off")) {
+            music.Play();
+            PlayerPrefs.SetInt("Sound", 1);
+            soundButtonText.text = "Sound: " + "On";
+        } else {
+            music.Pause();
+            PlayerPrefs.SetInt("Sound", 0);
+            soundButtonText.text = "Sound: " + "Off";
+        }
     }
 }

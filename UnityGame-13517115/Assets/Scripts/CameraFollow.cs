@@ -16,7 +16,7 @@ public class CameraFollow : MonoBehaviour
             mainCharacterTransform = GameObject.FindGameObjectWithTag("Main Character").transform;
         }
         backgroundTransform = GameObject.FindGameObjectWithTag("Background").transform;
-        offsetX = 0.7f;
+        offsetX = 1.2f;
         offsetY = 0.3f;
     }
 

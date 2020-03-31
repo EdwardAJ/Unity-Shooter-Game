@@ -20,7 +20,7 @@ public class Movement : MonoBehaviour
 
     public int score = 0;
     public float moveSpeed = 6f;
-    public float jumpSpeed = 5f;
+    public float jumpSpeed = 100f;
 
 
     // Start is called before the first frame update

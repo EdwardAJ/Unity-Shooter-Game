@@ -18,14 +18,15 @@ public class Zombie : MonoBehaviour
     }
 
     void OnEnable() {
-        float delayTime = Random.Range(3f, 5f);
-        if (scoreCanvas.GetComponent<ScoreController>().scoreInt > 25) {
-            delayTime = Random.Range(1.5f, 3f);
+        float delayTime = Random.Range(6f, 8f);
+        if (scoreCanvas.GetComponent<ScoreController>().scoreInt >= 25) {
+            delayTime = Random.Range(3.5f, 6f);
         }
-        if (scoreCanvas.GetComponent<ScoreController>().scoreInt > 50) {
-            delayTime = Random.Range(0.25f, 0.75f);
+        if (scoreCanvas.GetComponent<ScoreController>().scoreInt >= 50) {
+            delayTime = Random.Range(0.1f, 0.5f);
         }
         Invoke("ReviveZombie", delayTime);
+        Invoke("DisableZombie", 12.5f);
     }
 
     void ReviveZombie() {
@@ -41,10 +42,15 @@ public class Zombie : MonoBehaviour
         }
     }
 
+    void DisableZombie() {
+        isEnabled = false;
+        gameObject.SetActive(false);
+    }
+
     private void SetZombieMovement() {
         if (transform.position.y < -10) {
-            isEnabled = false;
-            gameObject.SetActive(false);
+            CancelInvoke();
+            DisableZombie();
         } else {
             if (mainCharacter != null) {
                 if (transform.position.x >= mainCharacter.transform.position.x) {
@@ -62,8 +68,8 @@ public class Zombie : MonoBehaviour
             energy -= 10;
             if (energy <= 0) {
                 scoreCanvas.GetComponent<ScoreController>().scoreInt += 1;
-                isEnabled = false;
-                gameObject.SetActive(false);
+                CancelInvoke();
+                DisableZombie();
             }
         }
     }
