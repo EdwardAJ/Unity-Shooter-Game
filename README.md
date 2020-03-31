@@ -29,6 +29,15 @@ Berikut adalah cara kerja yang diurutkan berdasarkan spesifikasi wajib dan bonus
 - Library yang digunakan pada tugas besar ini adalah RestClient (link: https://github.com/proyecto26/RestClient).
 - Library ini memudahkan programmer untuk melakukan HTTP request pada basis data online. Jika tidak menggunakan library, mekanisme HTTP request harus dibuat sendiri dengan menggunakan Callback dan CoRoutine pada Unity dan tentunya rumit untuk dibuat. Spesifikasi dari tugas ini tidak mewajibkan mahasiswa untuk tidak menggunakan library pada HTTP request sehingga perilaku penggunaan Library ini tidak dapat disalahkan.
 ## Screenshot Aplikasi
+![](Screenshots/Gameplay1.png)
+![](Screenshots/Gameplay2.png)
+![](Screenshots/Gameplay3.png)
+![](Screenshots/MainMenu.png)
+![](Screenshots/Scoreboard.png)
+![](Screenshots/CharacterDie.png)
+![](Screenshots/CharacterJump.png)
+![](Screenshots/CharacterShoot.png)
+
 
 
 
