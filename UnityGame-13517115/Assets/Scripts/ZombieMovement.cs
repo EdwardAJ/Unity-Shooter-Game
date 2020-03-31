@@ -5,12 +5,13 @@ using UnityEngine;
 public class ZombieMovement : MonoBehaviour
 {
     [SerializeField] private GameObject mainCharacter;
-    [SerializeField] private GameObject zombie;
+    [SerializeField] private GameObject maleZombie;
+    [SerializeField] private GameObject femaleZombie;
     // private GameObject zombie;
 
     // Using Object Pooling
     private List<GameObject> zombieList;
-    private int numberOfZombies = 5;
+    private int numberOfZombies = 6;
 
     // Start is called before the first frame update
     void Start()
@@ -18,8 +19,12 @@ public class ZombieMovement : MonoBehaviour
         // zombie = GameObject.FindGameObjectWithTag("Zombie");
         zombieList = new List<GameObject>();
         for (int i = 0; i < numberOfZombies; i++) {
-            GameObject zombieObject = (GameObject) Instantiate(zombie);
-            // Deactivate all of the bullets in object pool
+            GameObject zombieObject = null;
+            if (i % 2 == 0) {
+                zombieObject = (GameObject) Instantiate(femaleZombie);
+            } else {
+                zombieObject = (GameObject) Instantiate(maleZombie);
+            }
             zombieObject.SetActive(false);
             zombieList.Add(zombieObject);
         }
@@ -36,7 +41,7 @@ public class ZombieMovement : MonoBehaviour
             if (!zombieList[i].activeInHierarchy) {
                 float offset = Random.Range(2f, 5f);
                 zombieList[i].transform.position = new Vector2(mainCharacter.transform.position.x + offset, 1.6f);
-                zombieList[i].transform.rotation = zombie.transform.rotation;
+                // zombieList[i].transform.rotation = zombie.transform.rotation;
                 zombieList[i].SetActive(true);
                 // Only triggered once!
             }

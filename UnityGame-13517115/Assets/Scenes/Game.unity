@@ -121,6 +121,46 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &42003294 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3870592322907650588, guid: c57f713e40ebd4a9cbfb8c972167c24d,
+    type: 3}
+  m_PrefabInstance: {fileID: 534022917}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &42003295
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42003294}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 80e7a099aebd541c9964402a8a7190af, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &42003296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42003294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7676badaeb3a4e0caae89505c15af59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCharacter: {fileID: 1257596878}
+  scoreCanvas: {fileID: 1323892733}
+  energy: 30
 --- !u!1 &71214430
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,6 +411,92 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &534022917
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3870592322907650582, guid: c57f713e40ebd4a9cbfb8c972167c24d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870592322907650582, guid: c57f713e40ebd4a9cbfb8c972167c24d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870592322907650582, guid: c57f713e40ebd4a9cbfb8c972167c24d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870592322907650582, guid: c57f713e40ebd4a9cbfb8c972167c24d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870592322907650582, guid: c57f713e40ebd4a9cbfb8c972167c24d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870592322907650582, guid: c57f713e40ebd4a9cbfb8c972167c24d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870592322907650582, guid: c57f713e40ebd4a9cbfb8c972167c24d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870592322907650582, guid: c57f713e40ebd4a9cbfb8c972167c24d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870592322907650582, guid: c57f713e40ebd4a9cbfb8c972167c24d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870592322907650582, guid: c57f713e40ebd4a9cbfb8c972167c24d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870592322907650582, guid: c57f713e40ebd4a9cbfb8c972167c24d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870592322907650588, guid: c57f713e40ebd4a9cbfb8c972167c24d,
+        type: 3}
+      propertyPath: m_Name
+      value: FemaleZombie
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870592322907650589, guid: c57f713e40ebd4a9cbfb8c972167c24d,
+        type: 3}
+      propertyPath: mainCharacter
+      value: 
+      objectReference: {fileID: 1257596878}
+    - target: {fileID: 3870592322907650589, guid: c57f713e40ebd4a9cbfb8c972167c24d,
+        type: 3}
+      propertyPath: scoreCanvas
+      value: 
+      objectReference: {fileID: 1323892733}
+    - target: {fileID: 3870592322907650589, guid: c57f713e40ebd4a9cbfb8c972167c24d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3870592322907650589, guid: c57f713e40ebd4a9cbfb8c972167c24d, type: 3}
+    - {fileID: 3870592322907650586, guid: c57f713e40ebd4a9cbfb8c972167c24d, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: c57f713e40ebd4a9cbfb8c972167c24d, type: 3}
 --- !u!1 &587195191
 GameObject:
   m_ObjectHideFlags: 0
@@ -1044,6 +1170,11 @@ PrefabInstance:
       propertyPath: scoreCanvas
       value: 
       objectReference: {fileID: 1323892733}
+    - target: {fileID: 3870592322907650589, guid: c57f713e40ebd4a9cbfb8c972167c24d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c57f713e40ebd4a9cbfb8c972167c24d, type: 3}
 --- !u!1 &1229967228
@@ -1146,7 +1277,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCharacter: {fileID: 1257596878}
-  zombie: {fileID: 1593834979}
+  maleZombie: {fileID: 1593834979}
+  femaleZombie: {fileID: 42003294}
 --- !u!1 &1257596878 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6285219618542265718, guid: f327dfcfcccdb4b36b44f9f272c8d165,
@@ -1480,6 +1612,21 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1009510150}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1593834986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593834979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc86f292ded14a398ff19ccbe477064, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCharacter: {fileID: 1257596878}
+  scoreCanvas: {fileID: 1323892733}
+  energy: 30
 --- !u!1 &1734801122
 GameObject:
   m_ObjectHideFlags: 0

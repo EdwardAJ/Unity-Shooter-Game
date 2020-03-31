@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Zombie : MonoBehaviour
 {
-    [SerializeField] private GameObject mainCharacter;
-    [SerializeField] private GameObject scoreCanvas;
-    private int energy = 30;
+    [SerializeField] public GameObject mainCharacter;
+    [SerializeField] public GameObject scoreCanvas;
+    public int energy = 30;
     private Rigidbody2D zombieRB;
     private Vector2 zombieMovement;
     private bool isEnabled;
@@ -42,7 +42,7 @@ public class Zombie : MonoBehaviour
         }
     }
 
-    void DisableZombie() {
+    public void DisableZombie() {
         isEnabled = false;
         gameObject.SetActive(false);
     }
@@ -63,14 +63,14 @@ public class Zombie : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D col) {
-        if (col.gameObject.tag.Equals("Bullet")) {
-            energy -= 10;
-            if (energy <= 0) {
-                scoreCanvas.GetComponent<ScoreController>().scoreInt += 1;
-                CancelInvoke();
-                DisableZombie();
-            }
-        }
-    }
+    // private void OnCollisionEnter2D(Collision2D col) {
+    //     if (col.gameObject.tag.Equals("Bullet")) {
+    //         energy -= 10;
+    //         if (energy <= 0) {
+    //             scoreCanvas.GetComponent<ScoreController>().scoreInt += 1;
+    //             CancelInvoke();
+    //             DisableZombie();
+    //         }
+    //     }
+    // }
 }
