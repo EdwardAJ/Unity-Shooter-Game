@@ -26,6 +26,10 @@ Berikut adalah cara kerja yang diurutkan berdasarkan spesifikasi wajib dan bonus
 - (2): Terdapat zombie pria dan zombie wanita yang memiliki darah sama-sama 30. Namun, jika peluru mengenai zombie pria, darah zombie akan dikurangi sebanyak 6. Jika peluru mengenai zombie wanita, darah zombie akan dikurangi sebanyak 3.
 - (3): Object pooling dilakukan pada peluru, roket api dan zombie. Pada peluru, object pool berisi tiga peluru. Pada zombie, object pool berisi satu roket api. Pada zombie, object pool berisi 10 zombie.
 ## Library yang digunakan dan Justifikasi penggunaan
+- Library yang digunakan pada tugas besar ini adalah RestClient (link: https://github.com/proyecto26/RestClient).
+- Library ini memudahkan programmer untuk melakukan HTTP request pada basis data online. Jika tidak menggunakan library, mekanisme HTTP request harus dibuat sendiri dengan menggunakan Callback dan CoRoutine pada Unity dan tentunya rumit untuk dibuat. Spesifikasi dari tugas ini tidak mewajibkan mahasiswa untuk tidak menggunakan library pada HTTP request sehingga perilaku penggunaan Library ini tidak dapat disalahkan.
+## Screenshot Aplikasi
+
 
 
 
